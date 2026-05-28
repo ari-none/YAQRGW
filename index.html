@@ -13,7 +13,17 @@
         integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
     <title>Yet Another QR code Generator Website</title>
 </head>
-<body>
+<style>
+    html, body {
+        height: 100%;
+    }
+
+    div { /* DEBUG */
+        border-color: black;
+        border-style: solid;
+    }
+</style>
+<body class="d-flex flex-column flex-grow-1">
     <!-- Navigation/home bar -->
     <nav class="navbar bg-info">
         <div class="container-fluid">
@@ -26,7 +36,7 @@
     </nav>
 
     <!-- The rest of the page -->
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-center flex-grow-1"> <!-- FIXME: The div is supposed to fully grow to the bottom of the page, but instead is limited to it's filled content -->
         <div class="row">
             <!-- Parameters -->
             <div class="col bg-info-subtle">
