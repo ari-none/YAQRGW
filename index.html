@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,33 +13,25 @@
         integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
     <title>Yet Another QR code Generator Website</title>
 </head>
-<style>
-    html, body {
-        height: 100%;
-    }
-
-    div { /* DEBUG */
-        border-color: black;
-        border-style: solid;
-    }
-</style>
-<body class="d-flex flex-column flex-grow-1">
-    <!-- Navigation/home bar -->
-    <nav class="navbar bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/media/logo.png" alt="Logo" width="30" height="24"
-                    class="d-inline-block align-text-top">
-                Yet Another QR code Generator Website
-            </a>
-        </div>
-    </nav>
-
-    <!-- The rest of the page -->
-    <div class="container-fluid text-center flex-grow-1"> <!-- FIXME: The div is supposed to fully grow to the bottom of the page, but instead is limited to it's filled content -->
+<body class="h-100">
+    <div class="container-fluid text-center d-flex h-100 flex-column"> <!-- FIXME: The div is supposed to fully grow to the bottom of the page, but instead is limited to it's filled content -->
+        <!-- Navigation/home bar -->
         <div class="row">
+            <nav class="navbar bg-info">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="/media/logo.png" alt="Logo" width="30" height="24"
+                            class="d-inline-block align-text-top">
+                        Yet Another QR code Generator Website
+                    </a>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- The rest of the page -->
+        <div class="row flex-grow-1">
             <!-- Parameters -->
-            <div class="col bg-info-subtle">
+            <div class="col bg-info-subtle portlet">
                 <div class="accordion m-3" id="parametersList">
                     <div class="accordion-item m-2">
                         <h2 class="accordion-header">
@@ -91,6 +83,7 @@
                 <div class="m-3">
                     <h1>Body content</h1>
                 </div>
+                This is supposed to fully grow to the bottom alongside the other divs in the row :(
             </div>
 
             <!-- QR code history -->
