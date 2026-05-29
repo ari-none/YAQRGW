@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,10 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"
         integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Yet Another QR code Generator Website</title>
 </head>
-<body class="h-100">
+<body>
     <div class="container-fluid text-center d-flex h-100 flex-column"> <!-- FIXME: The div is supposed to fully grow to the bottom of the page, but instead is limited to it's filled content -->
         <!-- Navigation/home bar -->
         <div class="row">
@@ -43,7 +44,20 @@
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#parametersList">
                             <!-- Content type menu -->
                             <div class="accordion-body">
-                                <h1>Placeholder content-type menu</h1>
+
+                                <label class="form-label" for="qrcodeContentValue">Fill in the link or text you'd like the QR code to have. (full link required)</label>
+                                <input class="form-control" type="text" placeholder="Type here…" id="qrcodeContentValue">
+                                <br>
+
+                                <div class="form-control text-start">
+                                    <p><b class="small">Here's an example list of URIs (link prefixes) you can use:</b></p>
+                                    <br>
+                                    <p class="small">http/https: (for links)</p>
+                                    <p class="small">tel: (for phone numbers)</p>
+                                    <p class="small">mailto: (for email addresses)</p>
+                                    <p class="small">ftp: (for ftp servers)</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -57,7 +71,9 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#parametersList">
                             <!-- Customization settings menu -->
                             <div class="accordion-body">
+
                                 <h1>Placeholder customization settings</h1>
+
                             </div>
                         </div>
                     </div>
@@ -71,7 +87,9 @@
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#parametersList">
                             <!-- QR code settings menu -->
                             <div class="accordion-body">
+
                                 <h1>Placeholder extra settings</h1>
+
                             </div>
                         </div>
                     </div>
@@ -79,11 +97,10 @@
             </div>
 
             <!-- Main display -->
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-lg-6">
                 <div class="m-3">
                     <h1>Body content</h1>
                 </div>
-                This is supposed to fully grow to the bottom alongside the other divs in the row :(
             </div>
 
             <!-- QR code history -->
