@@ -15,7 +15,7 @@
     <title>Yet Another QR code Generator Website</title>
 </head>
 <body>
-    <div class="container-fluid text-center d-flex h-100 flex-column"> <!-- FIXME: The div is supposed to fully grow to the bottom of the page, but instead is limited to it's filled content -->
+    <div class="container-fluid text-center d-flex h-100 flex-column">
         <!-- Navigation/home bar -->
         <div class="row">
             <nav class="navbar bg-info">
@@ -99,14 +99,20 @@
             <!-- Main display -->
             <div class="col-12 col-lg-6">
                 <div class="m-3">
-                    <h1>Body content</h1>
+                    
+                    <h1>Output</h1>
+
+                    <img src="media/placeholder.png" alt="Generated QR code" class="form-control m-3" id="qrcodeOutputImage">
+
+                    <input type="button" class="btn btn-info" value="Generate the QR code!" id="qrcodeGenerateButton">
+
                 </div>
             </div>
 
             <!-- QR code history -->
             <div class="col bg-info-subtle">
                 <div class="m-3">
-                    <h1>Placeholder history</h1>
+                    <h1>Placeholder history</h1> <!-- TODO: Finish the placeholder section for this -->
                 </div>
             </div>
         </div>
