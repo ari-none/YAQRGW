@@ -15,7 +15,35 @@
     <link rel="stylesheet" href="style.css">
     <title>Yet Another QR code Generator Website</title>
 </head>
-<body>
+<body class="d-flex">
+    <!-- Toasts -->
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="toastNoText" class="toast text-bg-danger" role="danger" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Text not set!</strong>
+                <small>Warning</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                You need to set the QR code's text before you can generate it !
+            </div>
+        </div>
+
+        <div id="toastGenerated" class="toast text-bg-success" role="success" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Generated!</strong>
+                <small>Information</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                QR code has been generated!
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid text-center d-flex h-100 flex-column">
         <!-- Navigation/home bar -->
         <div class="row">
@@ -43,20 +71,87 @@
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#parametersList">
-                            <!-- Content type menu -->
+                            <!-- QR content menu -->
                             <div class="accordion-body">
 
-                                <label class="form-label" for="qrcodeContentValue">Fill in the link or text you'd like the QR code to have. (full link required)</label>
-                                <input class="form-control" type="text" placeholder="Type here…" id="qrcodeContentValue">
-                                <br>
-
-                                <div class="form-control text-start">
-                                    <p><b class="small">Here's an example list of URIs (link prefixes) you can use:</b></p>
+                                <div class="form-control">
+                                    <label class="form-label" for="qrTextContent">Fill in the link or text you'd like the QR code to have. (full link
+                                        required)</label>
+                                    <input class="form-control" type="text" placeholder="Type here…" id="qrTextContent">
                                     <br>
-                                    <p class="small">http/https: (for links)</p>
-                                    <p class="small">tel: (for phone numbers)</p>
-                                    <p class="small">mailto: (for email addresses)</p>
-                                    <p class="small">ftp: (for ftp servers)</p>
+                                    
+                                    <div class="text-start">
+                                        <p><b class="small">Here's an example list of URIs (link prefixes) you can use:</b></p>
+                                        <br>
+                                        <p class="small">http/https: (for links)</p>
+                                        <p class="small">tel: (for phone numbers)</p>
+                                        <p class="small">mailto: (for email addresses)</p>
+                                        <p class="small">ftp: (for ftp servers)</p>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="form-control">
+                                    <label class="form-label" for="qrFileFormat">
+                                        Image file format
+                                    </label>
+                                    
+                                    <br>
+
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" name="qrFileFormat" id="qrFileFormatPNG" class="form-check-input" checked>
+                                        <label for="qrFileFormatPNG" class="form-check-label">
+                                            PNG
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" name="qrFileFormat" id="qrFileFormatSVG" class="form-check-input">
+                                        <label for="qrFileFormatSVG" class="form-check-label">
+                                            SVG
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="form-control">
+                                    <label for="qrSize" class="form-label">
+                                        Image size
+                                    </label>
+
+                                    <br>
+
+                                    <div class="form-check">
+                                        <input type="radio" name="qrSize" id="qrSize64" class="form-check-input">
+                                        <label for="qrSize64" class="form-check-label">
+                                            64x64 px
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="qrSize" id="qrSize128" class="form-check-input">
+                                        <label for="qrSize128" class="form-check-label">
+                                            128x128 px
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="qrSize" id="qrSize256" class="form-check-input">
+                                        <label for="qrSize256" class="form-check-label">
+                                            256x256 px
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="qrSize" id="qrSize512" class="form-check-input" checked>
+                                        <label for="qrSize512" class="form-check-label">
+                                            512x512 px
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="qrSize" id="qrSize1024" class="form-check-input">
+                                        <label for="qrSize1024" class="form-check-label">
+                                            1024x1024 px
+                                        </label>
+                                    </div>
                                 </div>
 
                             </div>
@@ -73,7 +168,7 @@
                             <!-- Customization settings menu -->
                             <div class="accordion-body">
 
-                                <h3>Size & Colors</h3>
+                                <h3>Colors</h3>
 
                                 <div class="color-picker m-3">
                                     
@@ -107,9 +202,9 @@
                     
                     <h1>Output</h1>
 
-                    <img src="media/placeholder.png" alt="Generated QR code" class="form-control m-3" id="qrcodeOutputImage">
-
                     <input type="button" class="btn btn-info" value="Generate the QR code!" id="qrcodeGenerateButton">
+
+                    <img src="media/placeholder.png" alt="Generated QR code" class="form-control m-3" id="qrcodeOutputImage">
 
                 </div>
             </div>
