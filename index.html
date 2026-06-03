@@ -100,13 +100,13 @@
                                     <br>
 
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" name="qrFileFormat" id="qrFileFormatPNG" class="form-check-input" checked>
+                                        <input type="radio" value="png" name="qrFileFormat" id="qrFileFormatPNG" class="form-check-input" checked>
                                         <label for="qrFileFormatPNG" class="form-check-label">
                                             PNG
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" name="qrFileFormat" id="qrFileFormatSVG" class="form-check-input">
+                                        <input type="radio" value="svg" name="qrFileFormat" id="qrFileFormatSVG" class="form-check-input">
                                         <label for="qrFileFormatSVG" class="form-check-label">
                                             SVG
                                         </label>
@@ -123,31 +123,31 @@
                                     <br>
 
                                     <div class="form-check">
-                                        <input type="radio" name="qrSize" id="qrSize64" class="form-check-input">
+                                        <input type="radio" value="64" name="qrSize" id="qrSize64" class="form-check-input">
                                         <label for="qrSize64" class="form-check-label">
                                             64x64 px
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" name="qrSize" id="qrSize128" class="form-check-input">
+                                        <input type="radio" value="128" name="qrSize" id="qrSize128" class="form-check-input">
                                         <label for="qrSize128" class="form-check-label">
                                             128x128 px
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" name="qrSize" id="qrSize256" class="form-check-input">
+                                        <input type="radio" value="256" name="qrSize" id="qrSize256" class="form-check-input">
                                         <label for="qrSize256" class="form-check-label">
                                             256x256 px
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" name="qrSize" id="qrSize512" class="form-check-input" checked>
+                                        <input type="radio" value="512" name="qrSize" id="qrSize512" class="form-check-input" checked>
                                         <label for="qrSize512" class="form-check-label">
                                             512x512 px
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" name="qrSize" id="qrSize1024" class="form-check-input">
+                                        <input type="radio" value="1024" name="qrSize" id="qrSize1024" class="form-check-input">
                                         <label for="qrSize1024" class="form-check-label">
                                             1024x1024 px
                                         </label>
@@ -202,9 +202,9 @@
                     
                     <h1>Output</h1>
 
-                    <input type="button" class="btn btn-info" value="Generate the QR code!" id="qrcodeGenerateButton">
+                    <input type="button" class="btn btn-info" value="Generate the QR code!" id="qrGenerateButton">
 
-                    <img src="media/placeholder.png" alt="Generated QR code" class="form-control m-3" id="qrcodeOutputImage">
+                    <img src="media/placeholder.png" alt="Generated QR code" class="form-control m-3" id="qrOutputImage">
 
                 </div>
             </div>
