@@ -168,10 +168,32 @@
                             <!-- Customization settings menu -->
                             <div class="accordion-body">
 
-                                <h3>Colors</h3>
-
-                                <div class="color-picker m-3">
+                                <div class="form-control">
+                                    <div class="row">
+                                        <label for="qrColorPrimary" class="form-label col-8">Primary color</label>
+                                        <input type="color" class="form-control form-control-color col-4" id="qrColorPrimary" value="#000000">
+                                    </div>
                                     
+                                    <div class="row">
+                                        <label for="qrColorSecondary" class="form-label col-8">Secondary color</label>
+                                        <input type="color" class="form-control form-control-color col-4" id="qrColorSecondary" value="#ffffff">
+                                    </div>
+
+                                    <div class="row">
+                                        <label for="qrColorFinder" class="form-label col-8">Finder color</label>
+                                        <input type="color" class="form-control form-control-color col-4" id="qrColorFinder" value="#000000">
+                                    </div>
+
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="qrColorFinderUsesPrimary">
+                                        <label class="form-check-label" for="qrColorFinderUsesPrimary">Standalone finder color</label>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="form-control">
+
                                 </div>
 
                             </div>
