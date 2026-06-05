@@ -31,6 +31,18 @@
             </div>
         </div>
 
+        <div id="toastBadImageLink" class="toast text-bg-danger" role="danger" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Invalid image link!</strong>
+                <small>Warning</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                You need to set a valid image link to put in the center of the QR code! <small>(make sure it can open an image in your browser)</small>
+            </div>
+        </div>
+
         <div id="toastGenerated" class="toast text-bg-success" role="success" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
@@ -186,14 +198,66 @@
 
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" id="qrColorFinderUsesPrimary">
-                                        <label class="form-check-label" for="qrColorFinderUsesPrimary">Standalone finder color</label>
+                                        <label class="form-check-label" for="qrColorFinderUsesPrimary">Use standalone finder color</label>
                                     </div>
                                 </div>
 
                                 <hr>
 
                                 <div class="form-control">
+                                    <label for="qrDotShape" class="form-label">
+                                        Dot (cell) shape
+                                    </label>
 
+                                    <br>
+
+                                    <div class="form-check">
+                                        <input type="radio" value="square" name="qrDotShape" id="qrDotShapeSquare" class="form-check-input" checked>
+                                        <label for="qrDotShapeSquare" class="form-check-label">
+                                            Square <small>(default)</small>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" value="dot" name="qrDotShape" id="qrDotShapeDotted" class="form-check-input">
+                                        <label for="qrDotShapeDotted" class="form-check-label">
+                                            Dotted / Circle
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" value="rounded" name="qrDotShape" id="qrDotShapeRounded" class="form-check-input">
+                                        <label for="qrDotShapeRounded" class="form-check-label">
+                                            Rounded
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="form-control">
+                                    <label for="qrFinderShape" class="form-label">
+                                        Finder shape
+                                    </label>
+
+                                    <br>
+
+                                    <div class="form-check">
+                                        <input type="radio" value="square" name="qrFinderShape" id="qrFinderShapeSquare" class="form-check-input" checked>
+                                        <label for="qrFinderShapeSquare" class="form-check-label">
+                                            Square <small>(default)</small>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" value="dot" name="qrFinderShape" id="qrFinderShapeDotted" class="form-check-input">
+                                        <label for="qrFinderShapeDotted" class="form-check-label">
+                                            Dotted / Circle
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" value="rounded" name="qrFinderShape" id="qrFinderShapeRounded" class="form-check-input">
+                                        <label for="qrFinderShapeRounded" class="form-check-label">
+                                            Rounded
+                                        </label>
+                                    </div>
                                 </div>
 
                             </div>
@@ -226,7 +290,7 @@
 
                     <input type="button" class="btn btn-info" value="Generate the QR code!" id="qrGenerateButton">
 
-                    <img src="media/placeholder.png" alt="Generated QR code" class="form-control m-3" id="qrOutputImage">
+                    <img src="media/placehol2er.png" alt="Generated QR code" class="form-control m-3" id="qrOutputImage">
 
                 </div>
             </div>
