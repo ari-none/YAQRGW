@@ -6,11 +6,8 @@ const toastGenerated = new bootstrap.Toast(document.getElementById("toastGenerat
 
 
 // Utility functions
-async function checkImageURL(url){
-     const res = await fetch(url);
-     const buff = await res.blob();
-    
-     return buff.type.startsWith('image/')
+function isValidImageUrl(url) {
+    return /\.(jpg|jpeg|png|webp|avif|gif)$/.test(url)
 }
 
 
@@ -21,15 +18,16 @@ function isStringEmpty(str) {
 
 // When the QR code generate button is clicked
 async function qrGenerateButtonClick() {
-    var qrText = $("#qrTextContent").val();
+    var qrText = encodeURIComponent( $("#qrTextContent").val().trim() );
 
     if (isStringEmpty(qrText)) {
         toastNotext.show();
+        return;
     } else {
         var qrURL = qrAPI;
 
         // QR code essentials
-        qrURL += `text=${ encodeURIComponent(qrText) }&`; // Text value
+        qrURL += `text=${ qrText }&`; // Text value
         qrURL += `format=${ $("input[name='qrFileFormat']:checked").val() }&` // File format
         qrURL += `size=${ $("input[name='qrSize']:checked").val() }&`
 
@@ -45,7 +43,18 @@ async function qrGenerateButtonClick() {
         qrURL += `finderStyle=${ $("input[name='qrFinderShape']:checked").val() }&`;
 
         // Embedded image
-        // TODO: Image selection
+        var qrEmbedImage = encodeURIComponent( $("#qrEmbedImage").val().trim() );
+        if ( !isStringEmpty(qrEmbedImage) ) {
+            console.log(isValidImageUrl(qrEmbedImage));
+            var isImage = await isValidImageUrl(qrEmbedImage);
+            if ( !isImage ) {
+                toastBadImage.show();
+                return;
+            } else {
+                qrURL += `centerImageUrl=${ qrEmbedImage }&`;
+                qrURL += `centerImageSizeRatio=${ $("#qrEmbedImageSizeRatio").val() / 100 }&`
+            }
+        }
 
         // Finalizing everything
         $("#qrOutputImage").attr("src", qrURL);
@@ -53,4 +62,11 @@ async function qrGenerateButtonClick() {
         toastGenerated.show();
     }
 }
-$("#qrGenerateButton").on("click", qrGenerateButtonClick)
+$("#qrGenerateButton").on("click", qrGenerateButtonClick);
+
+// Updating the embedded image ratio range output
+function qrEmbSizeOutput() {
+    $("#qrEmbedImageSizeRatioOutput").text( $("#qrEmbedImageSizeRatio").val() + "%" );
+}
+qrEmbSizeOutput();
+$("#qrEmbedImageSizeRatio").on("input", qrEmbSizeOutput);
