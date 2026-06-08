@@ -1,5 +1,9 @@
 // Global constants & stuff
 const qrAPI = "https://quickchart.io/qr?"; // API url string
+const hStart = "<div class='col-12 p-3 w-75 bg-secondary-subtle rounded-5'><img src='"; // QR history element start
+const hEnd = "' width='150' height='150'></div>"; // QR history element end
+const randomUnrelatedBS = "https://i.pinimg.com/736x/78/8e/08/788e083a24b90051db6e0d13a8bde218.jpg" // Thought it would be funny (even tho it's not idk)
+
 const toastNotext = new bootstrap.Toast(document.getElementById("toastNoText")); // Toast object (no text set error)
 const toastBadImage = new bootstrap.Toast(document.getElementById("toastBadImageLink")); // Toast object (invalid image link)
 const toastGenerated = new bootstrap.Toast(document.getElementById("toastGenerated")); // Toast object (generated confirmation)
@@ -16,6 +20,30 @@ function isStringEmpty(str) {
 }
 
 
+// Displaying & managing the QR code history
+function qrCodeHistory(newlink) {
+    if (localStorage.getItem("qrHistory") === null) { // If not set, creates the new history array
+        localStorage.setItem("qrHistory", "[]");
+    }
+
+    var linkHistory = JSON.parse(localStorage.getItem("qrHistory"));
+
+    if (typeof newlink === "string" && newlink.length > 0) { // If a new link has been passed in the URL, add it to the list
+        linkHistory.unshift(newlink);
+        if (linkHistory.length > 5) {
+            linkHistory.pop();
+        }
+        localStorage.setItem("qrHistory", JSON.stringify(linkHistory));
+    }
+
+    $("#qrHistoryWindow").html("");
+    linkHistory.forEach(function(link) {
+        $("#qrHistoryWindow").append(hStart + link + hEnd);
+    });
+}
+qrCodeHistory();
+
+
 // When the QR code generate button is clicked
 async function qrGenerateButtonClick() {
     var qrText = encodeURIComponent( $("#qrTextContent").val().trim() );
@@ -24,6 +52,11 @@ async function qrGenerateButtonClick() {
         toastNotext.show();
         return;
     } else {
+        if (qrText == "for%20some%20reason%20we%20exist") {
+            $("#qrOutputImage").attr("src", randomUnrelatedBS);
+            return;
+        }
+
         var qrURL = qrAPI;
 
         // QR code essentials
@@ -58,11 +91,13 @@ async function qrGenerateButtonClick() {
 
         // Finalizing everything
         $("#qrOutputImage").attr("src", qrURL);
+        qrCodeHistory(qrURL);
         
         toastGenerated.show();
     }
 }
 $("#qrGenerateButton").on("click", qrGenerateButtonClick);
+
 
 // Updating the embedded image ratio range output
 function qrEmbSizeOutput() {
