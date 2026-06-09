@@ -7,6 +7,7 @@ const randomUnrelatedBS = "https://i.pinimg.com/736x/78/8e/08/788e083a24b90051db
 const toastNotext = new bootstrap.Toast(document.getElementById("toastNoText")); // Toast object (no text set error)
 const toastBadImage = new bootstrap.Toast(document.getElementById("toastBadImageLink")); // Toast object (invalid image link)
 const toastGenerated = new bootstrap.Toast(document.getElementById("toastGenerated")); // Toast object (generated confirmation)
+const toastDownloadFail = new bootstrap.Toast(document.getElementById("toastDownloadFail")); // Toast object (download failed)
 
 
 // Utility functions
@@ -18,6 +19,19 @@ function isValidImageUrl(url) {
 function isStringEmpty(str) {
     return str.trim().length <= 0
 }
+
+
+function download(filename, link) {
+    $("<a>")
+        .attr("href", link)
+        .attr("download", filename)
+        .appendTo("body")
+        .get(0).click();
+    $(`body a[download="${filename}"]`).last().remove();
+}
+
+
+
 
 
 // Displaying & managing the QR code history
@@ -97,6 +111,20 @@ async function qrGenerateButtonClick() {
     }
 }
 $("#qrGenerateButton").on("click", qrGenerateButtonClick);
+
+
+// When the QR code download button is clicked
+function qrDownloadButtonClick() {
+    var imgLink = $("#qrOutputImage").attr("src");
+
+    if (!imgLink.startsWith("https://quickchart.io/qr?text=")) {
+        toastDownloadFail.show();
+        return;
+    } else {
+        download(`qrcode-${ Date.now() }.${ $("input[name='qrFileFormat']:checked").val() }`, imgLink);
+    }
+}
+$("#qrDownloadButton").on("click", qrDownloadButtonClick);
 
 
 // Updating the embedded image ratio range output
