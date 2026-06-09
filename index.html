@@ -74,10 +74,18 @@
             <nav class="navbar bg-info">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
-                        <img src="/media/logo.png" alt="Logo" width="30" height="24"
+                        <img class="m-0" src="./media/logo.png" alt="Logo" width="48" height="48"
                             class="d-inline-block align-text-top">
                         Yet Another QR code Generator Website
                     </a>
+                    <form class="d-flex" action="https://github.com/ari-none/YAQRGW">
+                        <span class="navbar-text small">
+                            Made by an intern at SENDIX
+                        </span>
+                        <button class="btn btn-outline-light ms-3" type="submit">
+                            Github repository
+                        </button>
+                    </form>
                 </div>
             </nav>
         </div>
@@ -319,12 +327,14 @@
                     
                     <h1>Output</h1>
 
-                    <div class="input-group">
+                    <div class="btn-group">
                         <input type="button" class="btn btn-info" value="Generate the QR code!" id="qrGenerateButton">
                         <input type="button" class="btn btn-info" value="Download the generated image" id="qrDownloadButton">
                     </div>
 
-                    <img src="media/placehol2er.png" alt="Generated QR code" class="form-control m-3" id="qrOutputImage">
+                    <div class="d-flex justify-content-center mt-3 mb-3">
+                        <img src="media/placehol2er.png" alt="Generated QR code" class="form-control" id="qrOutputImage">
+                    </div>
 
                 </div>
             </div>
@@ -335,8 +345,8 @@
                     <h3>QR code history</h3>
 
                     <hr>
-
-                    <div id="qrHistoryWindow" class="mt-1 row row-cols-1 gy-4 text-center justify-content-center">
+                    
+                    <div id="qrHistoryWindow" class="mt-1 row row-cols-auto gy-4 text-center justify-content-center">
                         <!-- Anything under is the flexbox for generated QR codes -->
                     </div>
                 </div>

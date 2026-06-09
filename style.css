@@ -22,3 +22,15 @@ hr {
     color: #888;
     background-color: #888;
 }
+
+.history-img {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+}
+
+#qrOutputImage {
+    max-width: 85%;
+    width: 100%;
+    height: auto;
+}

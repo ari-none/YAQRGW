@@ -1,7 +1,7 @@
 // Global constants & stuff
 const qrAPI = "https://quickchart.io/qr?"; // API url string
-const hStart = "<div class='col-12 p-3 w-75 bg-secondary-subtle rounded-5'><img src='"; // QR history element start
-const hEnd = "' width='150' height='150'></div>"; // QR history element end
+const hStart = "<div class='col-6 p-1 w-75'><img class='history-img' src='"; // QR history element start
+const hEnd = "'></div>"; // QR history element end
 const randomUnrelatedBS = "https://i.pinimg.com/736x/78/8e/08/788e083a24b90051db6e0d13a8bde218.jpg" // Thought it would be funny (even tho it's not idk)
 
 const toastNotext = new bootstrap.Toast(document.getElementById("toastNoText")); // Toast object (no text set error)
@@ -44,7 +44,7 @@ function qrCodeHistory(newlink) {
 
     if (typeof newlink === "string" && newlink.length > 0) { // If a new link has been passed in the URL, add it to the list
         linkHistory.unshift(newlink);
-        if (linkHistory.length > 5) {
+        if (linkHistory.length > 4) {
             linkHistory.pop();
         }
         localStorage.setItem("qrHistory", JSON.stringify(linkHistory));
