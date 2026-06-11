@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,48 +22,48 @@
         <div id="toastNoText" class="toast text-bg-danger" role="danger" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
-                <strong class="me-auto">Text not set!</strong>
-                <small>Warning</small>
+                <strong class="me-auto">Texte non mis</strong>
+                <small>Avertissement</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                You need to set the QR code's text before you can generate it !
+                Vous devez mettre du texte pour le code QR avant de le générer !
             </div>
         </div>
 
         <div id="toastBadImageLink" class="toast text-bg-danger" role="danger" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
-                <strong class="me-auto">Invalid image link!</strong>
-                <small>Warning</small>
+                <strong class="me-auto">Lien d'image invalide</strong>
+                <small>Avertissement</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                You need to set a valid image link to put in the center of the QR code! <small>(make sure it can open an image in your browser)</small>
+                Vous devez mettre un lien d'image valide ! <small>(faites en sorte qu'il peut s'ouvrir dans le navigateur)</small>
             </div>
         </div>
 
         <div id="toastDownloadFail" class="toast text-bg-danger" role="danger" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
-                <strong class="me-auto">Failed to download image!</strong>
-                <small>Warning</small>
+                <strong class="me-auto">Téléchargement raté !</strong>
+                <small>Avertissement</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                The image download failed. Make sure it's already generated beforehand, and can properly display.
+                Le téléchargement à raté. Faites en sorte que vous avez génére le code QR avant de cliquer sur le bouton de téléchargement.
             </div>
         </div>
 
         <div id="toastGenerated" class="toast text-bg-success" role="success" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
-                <strong class="me-auto">Generated!</strong>
+                <strong class="me-auto">Généré !</strong>
                 <small>Information</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                QR code has been generated!
+                Le code QR a bien été généré.
             </div>
         </div>
     </div>
@@ -78,14 +78,17 @@
                             class="d-inline-block align-text-top">
                         Yet Another QR code Generator Website
                     </a>
-                    <form class="d-flex" action="https://github.com/ari-none/YAQRGW">
+                    <div class="d-flex">
                         <span class="navbar-text small">
-                            Made by an intern at SENDIX
+                            Fait par un stagiaire chez SENDIX
                         </span>
-                        <button class="btn btn-outline-light ms-3" type="submit">
-                            Github repository
-                        </button>
-                    </form>
+                        <a href="https://sendix.fr/" class="btn btn-outline-light ms-3">
+                            SENDIX.FR
+                        </a>
+                        <a href="https://github.com/ari-none/YAQRGW" class="btn btn-outline-light ms-3">
+                            Github
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -99,7 +102,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                 aria-expanded="true" aria-controls="collapseOne">
-                                [1] — QR code content
+                                [1] — Contenu du code QR
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#parametersList">
@@ -107,18 +110,18 @@
                             <div class="accordion-body">
 
                                 <div class="form-control">
-                                    <label class="form-label" for="qrTextContent">Fill in the link or text you'd like the QR code to have. (full link
-                                        required)</label>
-                                    <input class="form-control" type="text" placeholder="Type here…" id="qrTextContent">
+                                    <label class="form-label" for="qrTextContent">Insérez le texte ou le lien du QR code <small>(si vous voulez mettre un lien, 
+                                        vous devez mettre le lien en entier !)</small></label>
+                                    <input class="form-control" type="text" placeholder="Lien ou texte du code QR…" id="qrTextContent">
                                     <br>
                                     
                                     <div class="text-start">
-                                        <p><b class="small">Here's an example list of URIs (link prefixes) you can use:</b></p>
+                                        <p><b class="small">Voici une liste d'URI (préfixe pour les liens) que vous pouvez utiliser :</b></p>
                                         <br>
-                                        <p class="small">http/https: (for links)</p>
-                                        <p class="small">tel: (for phone numbers)</p>
-                                        <p class="small">mailto: (for email addresses)</p>
-                                        <p class="small">ftp: (for ftp servers)</p>
+                                        <p class="small"><b>http://</b> et <b>https://</b> (pour les liens)</p>
+                                        <p class="small"><b>tel:</b> (pour les numéros de téléphone, commencez le numéro avec <b>+33</b> pour les numéros français)</p>
+                                        <p class="small"><b>mailto:</b> (pour les addresses e-mail)</p>
+                                        <p class="small"><b>ftp:</b> (pour les serveurs FTP)</p>
                                     </div>
                                 </div>
 
@@ -126,7 +129,7 @@
 
                                 <div class="form-control">
                                     <label class="form-label" for="qrFileFormat">
-                                        Image file format
+                                        Format de l'image
                                     </label>
                                     
                                     <br>
@@ -149,7 +152,7 @@
 
                                 <div class="form-control">
                                     <label for="qrSize" class="form-label">
-                                        Image size
+                                        Taille de l'image en pixels
                                     </label>
 
                                     <br>
@@ -193,7 +196,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                [2] — Customization
+                                [2] — Customiser l'image
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#parametersList">
@@ -202,23 +205,25 @@
 
                                 <div class="form-control">
                                     <div class="row">
-                                        <label for="qrColorPrimary" class="form-label col-8">Primary color</label>
+                                        <label for="qrColorPrimary" class="form-label col-8">Couleur des cases</label>
                                         <input type="color" class="form-control form-control-color col-4" id="qrColorPrimary" value="#000000">
                                     </div>
                                     
                                     <div class="row">
-                                        <label for="qrColorSecondary" class="form-label col-8">Secondary color</label>
+                                        <label for="qrColorSecondary" class="form-label col-8">Couleur arrière plan</label>
                                         <input type="color" class="form-control form-control-color col-4" id="qrColorSecondary" value="#ffffff">
                                     </div>
 
                                     <div class="row">
-                                        <label for="qrColorFinder" class="form-label col-8">Finder color</label>
+                                        <label for="qrColorFinder" class="form-label col-8">Couleur du finder</label>
                                         <input type="color" class="form-control form-control-color col-4" id="qrColorFinder" value="#000000">
                                     </div>
 
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" id="qrColorFinderUsesPrimary">
-                                        <label class="form-check-label" for="qrColorFinderUsesPrimary">Use standalone finder color</label>
+                                        <label class="form-check-label" for="qrColorFinderUsesPrimary">
+                                            Couleur à part pour les finders
+                                        </label>
                                     </div>
                                 </div>
 
@@ -226,7 +231,7 @@
 
                                 <div class="form-control">
                                     <label for="qrDotShape" class="form-label">
-                                        Dot (cell) shape
+                                        Forme des cellules (petits carrés)
                                     </label>
 
                                     <br>
@@ -234,19 +239,19 @@
                                     <div class="form-check">
                                         <input type="radio" value="square" name="qrDotShape" id="qrDotShapeSquare" class="form-check-input" checked>
                                         <label for="qrDotShapeSquare" class="form-check-label">
-                                            Square <small>(default)</small>
+                                            Carrés <small>(défaut)</small>
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input type="radio" value="dot" name="qrDotShape" id="qrDotShapeDotted" class="form-check-input">
                                         <label for="qrDotShapeDotted" class="form-check-label">
-                                            Dotted / Circle
+                                            Points / Cercles
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input type="radio" value="rounded" name="qrDotShape" id="qrDotShapeRounded" class="form-check-input">
                                         <label for="qrDotShapeRounded" class="form-check-label">
-                                            Rounded
+                                            Arrondi
                                         </label>
                                     </div>
                                 </div>
@@ -255,7 +260,7 @@
 
                                 <div class="form-control">
                                     <label for="qrFinderShape" class="form-label">
-                                        Finder shape
+                                        Forme des finders
                                     </label>
 
                                     <br>
@@ -263,19 +268,19 @@
                                     <div class="form-check">
                                         <input type="radio" value="square" name="qrFinderShape" id="qrFinderShapeSquare" class="form-check-input" checked>
                                         <label for="qrFinderShapeSquare" class="form-check-label">
-                                            Square <small>(default)</small>
+                                            Carrés <small>(défaut)</small>
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input type="radio" value="dot" name="qrFinderShape" id="qrFinderShapeDotted" class="form-check-input">
                                         <label for="qrFinderShapeDotted" class="form-check-label">
-                                            Dotted / Circle
+                                            Points / Cercles
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input type="radio" value="rounded" name="qrFinderShape" id="qrFinderShapeRounded" class="form-check-input">
                                         <label for="qrFinderShapeRounded" class="form-check-label">
-                                            Rounded
+                                            Arrondi
                                         </label>
                                     </div>
                                 </div>
@@ -287,7 +292,7 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                [3] — Embedded center image
+                                [3] — Image au centre (WIP)
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#parametersList">
@@ -296,21 +301,21 @@
 
                                 <div class="form-control bg-danger">
                                     <p class="text-center text-light">
-                                        WARNING: This feature is very buggy, and you should only use it at your own risk. If the QR code doesn't generate after putting an embedded image, it's the reason why it doesn't work sometimes.
+                                        ATTENTION : Cette fonctionalitée présente des bugs. Si vous avez besoin d'avoir une image centrée, veuillez utiliser un outil de retouche photo si possible.
                                     </p>
                                 </div>
 
                                 <hr>
 
                                 <div class="form-control">
-                                    <label class="form-label" for="qrEmbedImage">Embedded image link (leave empty for no images)</label>
-                                    <input class="form-control" type="text" placeholder="Type here…" id="qrEmbedImage">
+                                    <label class="form-label" for="qrEmbedImage">Lien de l'image centrée (veuillez laisser vide pour avoir aucune image)</label>
+                                    <input class="form-control" type="text" placeholder="Lien…" id="qrEmbedImage">
                                 </div>
 
                                 <hr>
 
                                 <div class="form-control">
-                                    <label for="qrEmbedImageSizeRatio" class="form-label">Embedded image scale ratio</label>
+                                    <label for="qrEmbedImageSizeRatio" class="form-label">Taille de l'image centrée en %</label>
                                     <input type="range" class="form-range" min="0" max="100" step="1" value="30" id="qrEmbedImageSizeRatio">
                                     <output for="qrEmbedImageSizeRatio" id="qrEmbedImageSizeRatioOutput" aria-hidden="true"></output>
                                 </div>
@@ -325,11 +330,11 @@
             <div class="col-12 col-lg-6">
                 <div class="m-3">
                     
-                    <h1>Output</h1>
+                    <h1>Sortie</h1>
 
                     <div class="btn-group">
-                        <input type="button" class="btn btn-info" value="Generate the QR code!" id="qrGenerateButton">
-                        <input type="button" class="btn btn-info" value="Download the generated image" id="qrDownloadButton">
+                        <input type="button" class="btn btn-info" value="Générer le code QR !" id="qrGenerateButton">
+                        <input type="button" class="btn btn-info" value="Télécharger l'image générée." id="qrDownloadButton">
                     </div>
 
                     <div class="d-flex justify-content-center mt-3 mb-3">
@@ -342,7 +347,7 @@
             <!-- QR code history -->
             <div class="col bg-info-subtle d-flex justify-content-center">
                 <div class="mt-3 mb-3 w-75 form-control">
-                    <h3>QR code history</h3>
+                    <h3>Historique des images générés</h3>
 
                     <hr>
                     
@@ -355,11 +360,4 @@
     </div>
 </body>
 <script src="./scripts/main.js"></script> <!-- Main script -->
-
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-    }
-</script> <!-- Automatic page translation -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>
